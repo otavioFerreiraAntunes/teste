@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Preg Math – Matemática para Vestibulares</title>
+  <link rel="stylesheet" href="../teste 1/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#home" class="logo" onclick="showPage('home')">
+        <span class="logo-icon"><i class="fas fa-square-root-alt"></i></span>
+        <span class="logo-text">Preg<strong>Math</strong></span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#" class="nav-link active" onclick="showPage('home'); setActive(this)">Home</a>
+        <a href="#" class="nav-link" onclick="showPage('simulado'); setActive(this)">SIMULADO</a>
+        <a href="#" class="nav-link" onclick="showPage('exercicios'); setActive(this)">ENEM</a>
+        <a href="#" class="nav-link" onclick="showPage('conteudo'); setActive(this)">CONTEÚDO</a>
+        <a href="#" class="nav-link" onclick="showPage('videoaulas'); setActive(this)">VIDEO-AULAS</a>
+      </div>
+
+      <div class="nav-search">
+        <input type="text" placeholder="Buscar tópico..." id="searchInput" />
+        <button class="search-btn"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== PAGE: HOME ===== -->
+  <section class="page active" id="page-home">
+
+    <!-- Hero / Banner -->
+    <div class="hero">
+      <div class="hero-content">
+        <span class="hero-badge">🎯 Plataforma #1 em Matemática</span>
+        <h1>Domine a <span class="highlight">Matemática</span><br/>e conquiste sua vaga!</h1>
+        <p>Conteúdos, exercícios e simulados para ENEM, PUC, FUVEST e muito mais.</p>
+        <div class="hero-btns">
+          <button class="btn-primary" onclick="showPage('exercicios')"><i class="fas fa-bolt"></i> Começar Agora</button>
+          <button class="btn-ghost" onclick="showPage('videoaulas')"><i class="fas fa-play"></i> Ver Videoaulas</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://placehold.co/520x340/FF8C00/ffffff?text=📐+Preg+Math" alt="Lousa matemática" />
+        <div class="floating-card fc1"><i class="fas fa-star"></i> +50k alunos</div>
+        <div class="floating-card fc2"><i class="fas fa-check-circle"></i> 1200 questões</div>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-bar">
+      <div class="stat"><strong>12.000+</strong><span>Questões</span></div>
+      <div class="stat"><strong>98%</strong><span>Aprovação</span></div>
+      <div class="stat"><strong>350+</strong><span>Videoaulas</span></div>
+      <div class="stat"><strong>50k+</strong><span>Alunos</span></div>
+    </div>
+
+    <!-- Topics Cards -->
+    <div class="section-wrap">
+      <div class="section-header">
+        <h2>Tópicos em Destaque</h2>
+        <p>Escolha um tópico e comece a estudar agora mesmo</p>
+      </div>
+      <div class="cards-grid">
+        <div class="topic-card" onclick="showPage('exercicios')">
+          <div class="card-icon" style="background:#FF8C00">📐</div>
+          <h3>Geometria</h3>
+          <p>Áreas, perímetros, volumes e figuras planas.</p>
+          <div class="card-meta"><span class="badge">ENEM</span><span class="badge">FUVEST</span></div>
+          <div class="card-footer">
+            <span>48 questões</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="topic-card" onclick="showPage('exercicios')">
+          <div class="card-icon" style="background:#e67e00">📊</div>
+          <h3>Estatística</h3>
+          <p>Média, mediana, moda, probabilidade e gráficos.</p>
+          <div class="card-meta"><span class="badge">ENEM</span><span class="badge">PUC</span></div>
+          <div class="card-footer">
+            <span>35 questões</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="topic-card" onclick="showPage('exercicios')">
+          <div class="card-icon" style="background:#d45f00">🔢</div>
+          <h3>Álgebra</h3>
+          <p>Equações, funções, polinômios e sistemas.</p>
+          <div class="card-meta"><span class="badge">FUVEST</span></div>
+          <div class="card-footer">
+            <span>62 questões</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="topic-card" onclick="showPage('exercicios')">
+          <div class="card-icon" style="background:#FF8C00">📉</div>
+          <h3>Trigonometria</h3>
+          <p>Seno, cosseno, tangente e ciclo trigonométrico.</p>
+          <div class="card-meta"><span class="badge">ENEM</span></div>
+          <div class="card-footer">
+            <span>29 questões</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="topic-card" onclick="showPage('conteudo')">
+          <div class="card-icon" style="background:#c45500">💯</div>
+          <h3>Porcentagem</h3>
+          <p>Regra de três, porcentagem, juros simples e compostos.</p>
+          <div class="card-meta"><span class="badge">ENEM</span><span class="badge">PUC</span></div>
+          <div class="card-footer">
+            <span>41 questões</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+        <div class="topic-card" onclick="showPage('videoaulas')">
+          <div class="card-icon" style="background:#b84d00">🔣</div>
+          <h3>Fração</h3>
+          <p>Frações, números decimais, operações e simplificação.</p>
+          <div class="card-meta"><span class="badge">FUVEST</span><span class="badge">PUC</span></div>
+          <div class="card-footer">
+            <span>37 questões</span>
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Banner -->
+    <div class="cta-banner">
+      <div class="cta-text">
+        <h2>Pronto para o simulado?</h2>
+        <p>Teste seus conhecimentos com questões de vestibulares reais.</p>
+      </div>
+      <button class="btn-cta" onclick="showPage('simulado')"><i class="fas fa-arrow-right"></i> Iniciar Simulado</button>
+    </div>
+
+  </section>
+
+  <!-- ===== PAGE: EXERCÍCIOS ===== -->
+  <section class="page" id="page-exercicios">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="page-tag">ENEM 2023</span>
+        <h2>Exercícios de Matemática</h2>
+        <p>Responda as questões e veja seu desempenho em tempo real</p>
+      </div>
+
+      <div class="exercise-layout">
+        <div class="exercise-main">
+
+          <!-- Questão 1 -->
+          <div class="question-card" id="q1">
+            <div class="question-header">
+              <span class="q-number">Questão 01</span>
+              <span class="q-tag">Porcentagem · ENEM 2023</span>
+            </div>
+            <p class="q-text">Uma loja oferece 20% de desconto em um produto que custa R$ 350,00. Qual é o valor final do produto após o desconto?</p>
+            <div class="options" id="opts1">
+              <div class="option" onclick="selectOption(this, 'opts1', false)"><span class="opt-letter">A</span> R$ 280,00</div>
+              <div class="option" onclick="selectOption(this, 'opts1', true)"><span class="opt-letter">B</span> R$ 280,00</div>
+              <div class="option" onclick="selectOption(this, 'opts1', false)"><span class="opt-letter">C</span> R$ 300,00</div>
+              <div class="option" onclick="selectOption(this, 'opts1', false)"><span class="opt-letter">D</span> R$ 330,00</div>
+            </div>
+            <div class="q-feedback" id="fb1"></div>
+          </div>
+
+          <!-- Questão 2 -->
+          <div class="question-card" id="q2">
+            <div class="question-header">
+              <span class="q-number">Questão 02</span>
+              <span class="q-tag">Geometria · PUC 2022</span>
+            </div>
+            <p class="q-text">Um triângulo retângulo tem catetos medindo 6 cm e 8 cm. Qual é a medida da hipotenusa?</p>
+            <div class="options" id="opts2">
+              <div class="option" onclick="selectOption(this, 'opts2', false)"><span class="opt-letter">A</span> 12 cm</div>
+              <div class="option" onclick="selectOption(this, 'opts2', false)"><span class="opt-letter">B</span> 8 cm</div>
+              <div class="option" onclick="selectOption(this, 'opts2', true)"><span class="opt-letter">C</span> 10 cm</div>
+              <div class="option" onclick="selectOption(this, 'opts2', false)"><span class="opt-letter">D</span> 14 cm</div>
+            </div>
+            <div class="q-feedback" id="fb2"></div>
+          </div>
+
+          <!-- Questão 3 -->
+          <div class="question-card" id="q3">
+            <div class="question-header">
+              <span class="q-number">Questão 03</span>
+              <span class="q-tag">Álgebra · FUVEST 2023</span>
+            </div>
+            <p class="q-text">Se f(x) = 2x² − 3x + 1, qual é o valor de f(3)?</p>
+            <div class="options" id="opts3">
+              <div class="option" onclick="selectOption(this, 'opts3', false)"><span class="opt-letter">A</span> 8</div>
+              <div class="option" onclick="selectOption(this, 'opts3', false)"><span class="opt-letter">B</span> 12</div>
+              <div class="option" onclick="selectOption(this, 'opts3', true)"><span class="opt-letter">C</span> 10</div>
+              <div class="option" onclick="selectOption(this, 'opts3', false)"><span class="opt-letter">D</span> 16</div>
+            </div>
+            <div class="q-feedback" id="fb3"></div>
+          </div>
+
+          <div class="exercise-actions">
+            <button class="btn-primary" onclick="showResults()"><i class="fas fa-chart-bar"></i> Ver Resultado</button>
+            <button class="btn-ghost" onclick="resetExercises()"><i class="fas fa-redo"></i> Reiniciar</button>
+          </div>
+
+          <div class="result-box" id="resultBox" style="display:none"></div>
+        </div>
+
+        <aside class="exercise-sidebar">
+          <div class="sidebar-card">
+            <h3><i class="fas fa-list-ol"></i> Navegação</h3>
+            <div class="q-nav">
+              <button class="q-dot" onclick="scrollToQ('q1')">1</button>
+              <button class="q-dot" onclick="scrollToQ('q2')">2</button>
+              <button class="q-dot" onclick="scrollToQ('q3')">3</button>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3><i class="fas fa-trophy"></i> Seu Desempenho</h3>
+            <div class="perf-ring">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#f0e0cc" stroke-width="10"/>
+                <circle cx="50" cy="50" r="40" fill="none" stroke="#FF8C00" stroke-width="10" stroke-dasharray="251" stroke-dashoffset="251" id="perfCircle" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+              </svg>
+              <span id="perfPct">0%</span>
+            </div>
+            <p class="perf-label" id="perfLabel">Responda as questões!</p>
+          </div>
+          <div class="sidebar-card tip-card">
+            <h3><i class="fas fa-lightbulb"></i> Dica</h3>
+            <p>Leia o enunciado com atenção antes de escolher a alternativa. Elimine as claramente erradas primeiro!</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE: CONTEÚDO ===== -->
+  <section class="page" id="page-conteudo">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="page-tag">Teoria</span>
+        <h2>O que é Porcentagem?</h2>
+        <p>Entenda o conceito, aprenda a fórmula e veja exemplos práticos</p>
+      </div>
+
+      <div class="content-layout">
+        <article class="content-body">
+          <div class="content-intro">
+            <img src="https://placehold.co/700x260/FF8C00/ffffff?text=📊+Porcentagem+Visual" alt="Ilustração Porcentagem" class="content-banner" />
+          </div>
+
+          <h3>O Conceito</h3>
+          <p>Porcentagem é uma forma de expressar uma proporção ou uma relação entre dois valores em que o denominador é sempre 100. A palavra "porcentagem" vem do latim <em>per centum</em>, que significa "por cem".</p>
+          <p>É amplamente usada no cotidiano: descontos em lojas, taxas de juros, resultados eleitorais, índices econômicos e muito mais. Dominar porcentagem é essencial para qualquer vestibular.</p>
+
+          <div class="formula-box">
+            <span class="formula-label">Fórmula Básica</span>
+            <div class="formula">Parte = (Porcentagem ÷ 100) × Total</div>
+          </div>
+
+          <h3>Exemplos Práticos</h3>
+          <div class="example-grid">
+            <div class="example-item">
+              <div class="ex-icon">🛒</div>
+              <h4>Desconto em loja</h4>
+              <p>Um produto custa R$ 200,00 com 15% de desconto.<br/>Desconto = 15% × 200 = <strong>R$ 30,00</strong><br/>Final = 200 − 30 = <strong>R$ 170,00</strong></p>
+            </div>
+            <div class="example-item">
+              <div class="ex-icon">📈</div>
+              <h4>Juros simples</h4>
+              <p>R$ 1.000,00 a 2% ao mês por 6 meses.<br/>J = 1000 × 0,02 × 6 = <strong>R$ 120,00</strong><br/>Total = <strong>R$ 1.120,00</strong></p>
+            </div>
+          </div>
+
+          <h3>Regra de Três Simples</h3>
+          <p>A regra de três é uma estratégia para encontrar um valor desconhecido a partir de três valores conhecidos que guardam proporção entre si. É um dos tópicos mais cobrados no ENEM e demais vestibulares.</p>
+
+          <div class="steps-box">
+            <div class="step"><span>1</span><p>Identifique as duas grandezas relacionadas.</p></div>
+            <div class="step"><span>2</span><p>Verifique se são diretamente ou inversamente proporcionais.</p></div>
+            <div class="step"><span>3</span><p>Monte a proporção e resolva para o incógnito.</p></div>
+          </div>
+
+          <div class="content-actions">
+            <button class="btn-primary" onclick="showPage('exercicios')"><i class="fas fa-pencil-alt"></i> Praticar Exercícios</button>
+            <button class="btn-ghost" onclick="showPage('videoaulas')"><i class="fas fa-play"></i> Ver Videoaula</button>
+          </div>
+        </article>
+
+        <aside class="content-sidebar">
+          <img src="https://placehold.co/280x320/ffe4cc/FF8C00?text=🎓+Ilustração" alt="Ilustração lateral" class="sidebar-img" />
+          <div class="sidebar-card">
+            <h3><i class="fas fa-bookmark"></i> Tópicos Relacionados</h3>
+            <ul class="related-list">
+              <li><a href="#" onclick="showPage('conteudo')"><i class="fas fa-chevron-right"></i> Frações</a></li>
+              <li><a href="#" onclick="showPage('conteudo')"><i class="fas fa-chevron-right"></i> Regra de Três</a></li>
+              <li><a href="#" onclick="showPage('conteudo')"><i class="fas fa-chevron-right"></i> Juros Compostos</a></li>
+              <li><a href="#" onclick="showPage('conteudo')"><i class="fas fa-chevron-right"></i> Razão e Proporção</a></li>
+            </ul>
+          </div>
+          <div class="sidebar-card" style="background:#fff7ee; border:2px solid #FF8C00">
+            <h3 style="color:#FF8C00"><i class="fas fa-fire"></i> Mais Cobrado</h3>
+            <p style="font-size:.9rem">Porcentagem aparece em <strong>~30%</strong> das provas de matemática do ENEM dos últimos 5 anos.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE: VIDEOAULAS ===== -->
+  <section class="page" id="page-videoaulas">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="page-tag">Videoaulas</span>
+        <h2>Aprenda com Vídeos</h2>
+        <p>Aulas explicativas organizadas por tópico — assista no seu ritmo</p>
+      </div>
+
+      <div class="video-layout">
+        <div class="accordion-list">
+
+          <!-- Accordion: Regra de 3 -->
+          <div class="accordion-item" id="acc1">
+            <button class="accordion-trigger" onclick="toggleAccordion('acc1')">
+              <div class="acc-left">
+                <span class="acc-icon">📐</span>
+                <div>
+                  <strong>Regra de Três</strong>
+                  <small>4 aulas · 52 min</small>
+                </div>
+              </div>
+              <i class="fas fa-chevron-down acc-arrow"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="video-list">
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/FF8C00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Introdução à Regra de Três</strong>
+                    <span>12 min · Aula 1</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/e67e00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Regra de Três Simples</strong>
+                    <span>14 min · Aula 2</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/c45500/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Regra de Três Composta</strong>
+                    <span>16 min · Aula 3</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/b84d00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Exercícios Resolvidos</strong>
+                    <span>10 min · Aula 4</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion: Porcentagem -->
+          <div class="accordion-item" id="acc2">
+            <button class="accordion-trigger" onclick="toggleAccordion('acc2')">
+              <div class="acc-left">
+                <span class="acc-icon">💯</span>
+                <div>
+                  <strong>Porcentagem</strong>
+                  <small>5 aulas · 68 min</small>
+                </div>
+              </div>
+              <i class="fas fa-chevron-down acc-arrow"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="video-list">
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/FF8C00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>O que é Porcentagem?</strong>
+                    <span>10 min · Aula 1</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/e67e00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Cálculo de Desconto</strong>
+                    <span>14 min · Aula 2</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/d45f00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Juros Simples</strong>
+                    <span>18 min · Aula 3</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion: Fração -->
+          <div class="accordion-item" id="acc3">
+            <button class="accordion-trigger" onclick="toggleAccordion('acc3')">
+              <div class="acc-left">
+                <span class="acc-icon">🔣</span>
+                <div>
+                  <strong>Fração</strong>
+                  <small>6 aulas · 80 min</small>
+                </div>
+              </div>
+              <i class="fas fa-chevron-down acc-arrow"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="video-list">
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/FF8C00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Tipos de Frações</strong>
+                    <span>13 min · Aula 1</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/e67e00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Operações com Frações</strong>
+                    <span>20 min · Aula 2</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/c45500/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Frações e Decimais</strong>
+                    <span>15 min · Aula 3</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion: Álgebra -->
+          <div class="accordion-item" id="acc4">
+            <button class="accordion-trigger" onclick="toggleAccordion('acc4')">
+              <div class="acc-left">
+                <span class="acc-icon">🔢</span>
+                <div>
+                  <strong>Álgebra e Funções</strong>
+                  <small>7 aulas · 95 min</small>
+                </div>
+              </div>
+              <i class="fas fa-chevron-down acc-arrow"></i>
+            </button>
+            <div class="accordion-content">
+              <div class="video-list">
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/FF8C00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Equações do 1º Grau</strong>
+                    <span>15 min · Aula 1</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+                <div class="video-item">
+                  <img src="https://placehold.co/120x68/d45f00/fff?text=▶" alt="thumb" />
+                  <div class="vi-info">
+                    <strong>Equações do 2º Grau</strong>
+                    <span>20 min · Aula 2</span>
+                  </div>
+                  <button class="btn-play"><i class="fas fa-play"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <aside class="video-sidebar">
+          <div class="sidebar-card">
+            <h3><i class="fas fa-star"></i> Em Destaque</h3>
+            <div class="featured-video">
+              <img src="https://placehold.co/260x150/FF8C00/ffffff?text=▶+Aula+Destaque" alt="Destaque" style="width:100%;border-radius:10px;margin-bottom:10px"/>
+              <strong>Revisão Geral ENEM 2024</strong>
+              <p>45 min · Prof. Carlos Mendes</p>
+              <button class="btn-primary" style="width:100%;margin-top:10px"><i class="fas fa-play"></i> Assistir</button>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3><i class="fas fa-graduation-cap"></i> Progresso</h3>
+            <div class="progress-list">
+              <div class="prog-item"><span>Regra de Três</span><div class="prog-bar"><div style="width:75%"></div></div></div>
+              <div class="prog-item"><span>Porcentagem</span><div class="prog-bar"><div style="width:40%"></div></div></div>
+              <div class="prog-item"><span>Fração</span><div class="prog-bar"><div style="width:20%"></div></div></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PAGE: SIMULADO ===== -->
+  <section class="page" id="page-simulado">
+    <div class="section-wrap">
+      <div class="section-header">
+        <span class="page-tag">Simulado</span>
+        <h2>Configure seu Simulado</h2>
+        <p>Personalize as questões e treine como se fosse dia de prova</p>
+      </div>
+
+      <div class="simulado-layout">
+        <div class="simulado-form-wrap">
+          <form class="simulado-form" id="simuladoForm" onsubmit="startSimulado(event)">
+
+            <div class="form-group">
+              <label for="nomeCompleto"><i class="fas fa-user"></i> Nome Completo</label>
+              <input type="text" id="nomeCompleto" placeholder="Digite seu nome completo" />
+              <span class="field-error" id="errNome"></span>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-list-ol"></i> Quantidade de Questões</label>
+              <div class="qty-selector" id="qtySel">
+                <button type="button" class="qty-btn active" data-qty="5" onclick="selectQty(this)">5</button>
+                <button type="button" class="qty-btn" data-qty="10" onclick="selectQty(this)">10</button>
+                <button type="button" class="qty-btn" data-qty="20" onclick="selectQty(this)">20</button>
+                <button type="button" class="qty-btn" data-qty="30" onclick="selectQty(this)">30</button>
+              </div>
+              <span class="field-error" id="errQty"></span>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-school"></i> Vestibular(es)</label>
+              <div class="checkbox-grid">
+                <label class="check-label"><input type="checkbox" value="ENEM" class="ves-check" /> <span>ENEM</span></label>
+                <label class="check-label"><input type="checkbox" value="PUC" class="ves-check" /> <span>PUC</span></label>
+                <label class="check-label"><input type="checkbox" value="FUVEST" class="ves-check" /> <span>FUVEST</span></label>
+                <label class="check-label"><input type="checkbox" value="UNICAMP" class="ves-check" /> <span>UNICAMP</span></label>
+                <label class="check-label"><input type="checkbox" value="UNESP" class="ves-check" /> <span>UNESP</span></label>
+                <label class="check-label"><input type="checkbox" value="IME" class="ves-check" /> <span>ITA/IME</span></label>
+              </div>
+              <span class="field-error" id="errVes"></span>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-book"></i> Tópicos</label>
+              <div class="checkbox-grid">
+                <label class="check-label"><input type="checkbox" class="top-check" value="Porcentagem" /> <span>Porcentagem</span></label>
+                <label class="check-label"><input type="checkbox" class="top-check" value="Geometria" /> <span>Geometria</span></label>
+                <label class="check-label"><input type="checkbox" class="top-check" value="Álgebra" /> <span>Álgebra</span></label>
+                <label class="check-label"><input type="checkbox" class="top-check" value="Estatística" /> <span>Estatística</span></label>
+                <label class="check-label"><input type="checkbox" class="top-check" value="Trigonometria" /> <span>Trigonometria</span></label>
+                <label class="check-label"><input type="checkbox" class="top-check" value="Frações" /> <span>Frações</span></label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fas fa-clock"></i> Tempo por Questão</label>
+              <div class="qty-selector">
+                <button type="button" class="qty-btn active" onclick="selectTime(this)" data-time="2">2 min</button>
+                <button type="button" class="qty-btn" onclick="selectTime(this)" data-time="3">3 min</button>
+                <button type="button" class="qty-btn" onclick="selectTime(this)" data-time="5">5 min</button>
+                <button type="button" class="qty-btn" onclick="selectTime(this)" data-time="0">Livre</button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-simulado">
+              <i class="fas fa-arrow-right"></i> Iniciar Simulado
+            </button>
+          </form>
+
+          <div class="simulado-success" id="simuladoSuccess" style="display:none">
+            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+            <h3 id="successMsg">Simulado configurado!</h3>
+            <p id="successDetail"></p>
+            <button class="btn-primary" onclick="showPage('exercicios')"><i class="fas fa-play"></i> Começar Agora</button>
+            <button class="btn-ghost" style="margin-top:10px" onclick="resetSimulado()"><i class="fas fa-redo"></i> Reconfigurar</button>
+          </div>
+        </div>
+
+        <aside class="simulado-sidebar">
+          <img src="https://placehold.co/280x200/ffe4cc/FF8C00?text=📝+Simulado" alt="Simulado" style="width:100%;border-radius:16px;margin-bottom:20px"/>
+          <div class="sidebar-card">
+            <h3><i class="fas fa-info-circle"></i> Como funciona</h3>
+            <ol class="how-list">
+              <li>Preencha seu nome e configure o simulado</li>
+              <li>Escolha os vestibulares e tópicos</li>
+              <li>Clique em "Iniciar Simulado"</li>
+              <li>Responda as questões no tempo configurado</li>
+              <li>Veja seu resultado detalhado ao final</li>
+            </ol>
+          </div>
+          <div class="sidebar-card" style="background:#fff7ee;border:2px solid #FF8C00">
+            <h3 style="color:#FF8C00"><i class="fas fa-award"></i> Ranking</h3>
+            <div class="rank-list">
+              <div class="rank-item"><span class="rank-pos">🥇</span><span class="rank-name">Ana Silva</span><span class="rank-score">98%</span></div>
+              <div class="rank-item"><span class="rank-pos">🥈</span><span class="rank-name">João Matos</span><span class="rank-score">95%</span></div>
+              <div class="rank-item"><span class="rank-pos">🥉</span><span class="rank-name">Carla Dias</span><span class="rank-score">91%</span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <span class="logo-text" style="font-size:1.5rem;color:#fff"><i class="fas fa-square-root-alt"></i> Preg<strong>Math</strong></span>
+        <p>Sua plataforma de matemática para vestibulares. Aprenda, pratique e conquiste sua vaga.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+          <a href="#"><i class="fab fa-tiktok"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <h4>Plataforma</h4>
+        <ul>
+          <li><a href="#" onclick="showPage('home')">Home</a></li>
+          <li><a href="#" onclick="showPage('exercicios')">Exercícios</a></li>
+          <li><a href="#" onclick="showPage('videoaulas')">Videoaulas</a></li>
+          <li><a href="#" onclick="showPage('simulado')">Simulado</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Vestibulares</h4>
+        <ul>
+          <li><a href="#">ENEM</a></li>
+          <li><a href="#">FUVEST</a></li>
+          <li><a href="#">PUC</a></li>
+          <li><a href="#">UNICAMP</a></li>
+        </ul>
+      </div>
+      <div class="footer-links">
+        <h4>Suporte</h4>
+        <ul>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contato</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+          <li><a href="#">Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 PregMath. Todos os direitos reservados.</p>
+      <p>Feito com ❤️ para estudantes brasileiros</p>
+    </div>
+  </footer>
+
+  <script src="../teste 1/script.js"></script>
+</body>
+</html>
