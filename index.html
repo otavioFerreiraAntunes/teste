@@ -3,673 +3,603 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Preg Math – Matemática para Vestibulares</title>
+  <meta name="description" content="Barbearia de alto padrão. Agende seu horário com os melhores barbeiros da cidade." />
+  <meta name="theme-color" content="#1a0f0a" />
+<link rel="icon" type="image/x-icon" href="Design sem nome.png" />
+  <title>START BARBER SHOP | BARBEARIA </title>
+  
+
+  <!-- Google Fonts: Playfair Display (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
+    rel="stylesheet"
+  />
+
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
 <body>
 
-  <!-- ===== NAVBAR ===== -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#home" class="logo" onclick="showPage('home')">
-        <span class="logo-icon"><i class="fas fa-square-root-alt"></i></span>
-        <span class="logo-text">Preg<strong>Math</strong></span>
-      </a>
+  <!-- =====================================================
+       HEADER / NAVEGAÇÃO
+  ====================================================== -->
+  <header class="site-header" role="banner">
+    <nav class="nav-container" aria-label="Navegação principal">
 
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
+      <!-- Logo – substitua o src pelo arquivo da sua logo -->
+      <div class="logo-container" aria-label="Logo da barbearia">
+        <img
+          src="./start cores trocadas.png"
+          alt="Barbearia – Logo"
+          class="logo-img"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <!-- Placeholder exibido quando a logo não é encontrada -->
+        <div class="logo-placeholder" aria-hidden="true">
+          <span class="logo-text">START BARBER</span>
+        </div>
+      </div>
+
+      <!-- Links de navegação -->
+      <ul class="nav-links" role="list">
+        <li><a href="#hero"       class="nav-link">Início</a></li>
+        <li><a href="#servicos"   class="nav-link">Serviços</a></li>
+        <li><a href="#barbeiros"  class="nav-link">Equipe</a></li>
+        <li><a href="#agendar"    class="nav-link nav-link--cta">Agendar</a></li>
+      </ul>
+
+      <!-- Botão hambúrguer para mobile -->
+      <button
+        class="nav-toggle"
+        aria-label="Abrir menu de navegação"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
       </button>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#" class="nav-link active" onclick="showPage('home'); setActive(this)">Home</a>
-        <a href="#" class="nav-link" onclick="showPage('simulado'); setActive(this)">SIMULADO</a>
-        <a href="#" class="nav-link" onclick="showPage('exercicios'); setActive(this)">ENEM</a>
-        <a href="#" class="nav-link" onclick="showPage('conteudo'); setActive(this)">CONTEÚDO</a>
-        <a href="#" class="nav-link" onclick="showPage('videoaulas'); setActive(this)">VIDEO-AULAS</a>
-      </div>
+    </nav>
 
-      <div class="nav-search">
-        <input type="text" placeholder="Buscar tópico..." id="searchInput" />
-        <button class="search-btn"><i class="fas fa-search"></i></button>
-      </div>
+    <!-- Menu mobile -->
+    <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Menu mobile" hidden>
+      <ul class="mobile-nav-links" role="list">
+        <li><a href="#hero"      class="mobile-nav-link">Início</a></li>
+        <li><a href="#servicos"  class="mobile-nav-link">Serviços</a></li>
+        <li><a href="#barbeiros" class="mobile-nav-link">Equipe</a></li>
+        <li><a href="#agendar"   class="mobile-nav-link mobile-nav-link--cta">Agendar</a></li>
+      </ul>
     </div>
-  </nav>
+  </header>
 
-  <!-- ===== PAGE: HOME ===== -->
-  <section class="page active" id="page-home">
+  <main id="main-content">
 
-    <!-- Hero / Banner -->
-    <div class="hero">
+    <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
+    <section class="hero" id="hero" aria-labelledby="hero-heading">
+
+      <!-- Fundo decorativo com camadas -->
+      <div class="hero-bg" aria-hidden="true">
+        <div class="hero-bg__grain"></div>
+        <div class="hero-bg__gradient"></div>
+        <div class="hero-bg__lines"></div>
+      </div>
+
+      <!-- Elemento decorativo lateral -->
+      <div class="hero-deco" aria-hidden="true">
+        <div class="hero-deco__bar"></div>
+        <span class="hero-deco__text">EST. 2015</span>
+      </div>
+
       <div class="hero-content">
-        <span class="hero-badge">🎯 Plataforma #1 em Matemática</span>
-        <h1>Domine a <span class="highlight">Matemática</span><br/>e conquiste sua vaga!</h1>
-        <p>Conteúdos, exercícios e simulados para ENEM, PUC, FUVEST e muito mais.</p>
-        <div class="hero-btns">
-          <button class="btn-primary" onclick="showPage('exercicios')"><i class="fas fa-bolt"></i> Começar Agora</button>
-          <button class="btn-ghost" onclick="showPage('videoaulas')"><i class="fas fa-play"></i> Ver Videoaulas</button>
-        </div>
-      </div>
-      <div class="hero-image">
-        <img src="https://placehold.co/520x340/FF8C00/ffffff?text=📐+Preg+Math" alt="Lousa matemática" />
-        <div class="floating-card fc1"><i class="fas fa-star"></i> +50k alunos</div>
-        <div class="floating-card fc2"><i class="fas fa-check-circle"></i> 1200 questões</div>
-      </div>
-    </div>
+        <p class="hero-eyebrow" aria-hidden="true">✦&nbsp;Arte em cada detalhe&nbsp;✦</p>
 
-    <!-- Stats -->
-    <div class="stats-bar">
-      <div class="stat"><strong>12.000+</strong><span>Questões</span></div>
-      <div class="stat"><strong>98%</strong><span>Aprovação</span></div>
-      <div class="stat"><strong>350+</strong><span>Videoaulas</span></div>
-      <div class="stat"><strong>50k+</strong><span>Alunos</span></div>
-    </div>
+        <h1 class="hero-heading" id="hero-heading">
+          Onde a<br />
+          <em>sofisticação</em><br />
+          encontra o estilo
+        </h1>
 
-    <!-- Topics Cards -->
-    <div class="section-wrap">
-      <div class="section-header">
-        <h2>Tópicos em Destaque</h2>
-        <p>Escolha um tópico e comece a estudar agora mesmo</p>
-      </div>
-      <div class="cards-grid">
-        <div class="topic-card" onclick="showPage('exercicios')">
-          <div class="card-icon" style="background:#FF8C00">📐</div>
-          <h3>Geometria</h3>
-          <p>Áreas, perímetros, volumes e figuras planas.</p>
-          <div class="card-meta"><span class="badge">ENEM</span><span class="badge">FUVEST</span></div>
-          <div class="card-footer">
-            <span>48 questões</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
+        <p class="hero-description">
+          Uma experiência única de grooming masculino. Cortes precisos,
+          barbeação clássica e tratamentos exclusivos para o homem moderno.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#agendar" class="btn btn--primary">
+            Agendar Horário
+            <span class="btn__arrow" aria-hidden="true">→</span>
+          </a>
+          <a href="#servicos" class="btn btn--ghost">Ver Serviços</a>
         </div>
-        <div class="topic-card" onclick="showPage('exercicios')">
-          <div class="card-icon" style="background:#e67e00">📊</div>
-          <h3>Estatística</h3>
-          <p>Média, mediana, moda, probabilidade e gráficos.</p>
-          <div class="card-meta"><span class="badge">ENEM</span><span class="badge">PUC</span></div>
-          <div class="card-footer">
-            <span>35 questões</span>
-            <i class="fas fa-arrow-right"></i>
+
+        <!-- Destaques numéricos -->
+        <div class="hero-stats" role="list" aria-label="Diferenciais da barbearia">
+          <div class="stat" role="listitem">
+            <span class="stat__number">6</span>
+            <span class="stat__label">Barbeiros especializados</span>
           </div>
-        </div>
-        <div class="topic-card" onclick="showPage('exercicios')">
-          <div class="card-icon" style="background:#d45f00">🔢</div>
-          <h3>Álgebra</h3>
-          <p>Equações, funções, polinômios e sistemas.</p>
-          <div class="card-meta"><span class="badge">FUVEST</span></div>
-          <div class="card-footer">
-            <span>62 questões</span>
-            <i class="fas fa-arrow-right"></i>
+          <div class="stat__divider" aria-hidden="true"></div>
+          <div class="stat" role="listitem">
+            <span class="stat__number">2</span>
+            <span class="stat__label">Unidades na cidade</span>
           </div>
-        </div>
-        <div class="topic-card" onclick="showPage('exercicios')">
-          <div class="card-icon" style="background:#FF8C00">📉</div>
-          <h3>Trigonometria</h3>
-          <p>Seno, cosseno, tangente e ciclo trigonométrico.</p>
-          <div class="card-meta"><span class="badge">ENEM</span></div>
-          <div class="card-footer">
-            <span>29 questões</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        <div class="topic-card" onclick="showPage('conteudo')">
-          <div class="card-icon" style="background:#c45500">💯</div>
-          <h3>Porcentagem</h3>
-          <p>Regra de três, porcentagem, juros simples e compostos.</p>
-          <div class="card-meta"><span class="badge">ENEM</span><span class="badge">PUC</span></div>
-          <div class="card-footer">
-            <span>41 questões</span>
-            <i class="fas fa-arrow-right"></i>
-          </div>
-        </div>
-        <div class="topic-card" onclick="showPage('videoaulas')">
-          <div class="card-icon" style="background:#b84d00">🔣</div>
-          <h3>Fração</h3>
-          <p>Frações, números decimais, operações e simplificação.</p>
-          <div class="card-meta"><span class="badge">FUVEST</span><span class="badge">PUC</span></div>
-          <div class="card-footer">
-            <span>37 questões</span>
-            <i class="fas fa-arrow-right"></i>
+          <div class="stat__divider" aria-hidden="true"></div>
+          <div class="stat" role="listitem">
+            <span class="stat__number">2+</span>
+            <span class="stat__label">Anos de experiência</span>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- CTA Banner -->
-    <div class="cta-banner">
-      <div class="cta-text">
-        <h2>Pronto para o simulado?</h2>
-        <p>Teste seus conhecimentos com questões de vestibulares reais.</p>
-      </div>
-      <button class="btn-cta" onclick="showPage('simulado')"><i class="fas fa-arrow-right"></i> Iniciar Simulado</button>
-    </div>
-
-  </section>
-
-  <!-- ===== PAGE: EXERCÍCIOS ===== -->
-  <section class="page" id="page-exercicios">
-    <div class="section-wrap">
-      <div class="section-header">
-        <span class="page-tag">ENEM 2023</span>
-        <h2>Exercícios de Matemática</h2>
-        <p>Responda as questões e veja seu desempenho em tempo real</p>
+      <!-- Scroll indicator -->
+      <div class="hero-scroll" aria-hidden="true">
+        <span class="hero-scroll__label">scroll</span>
+        <div class="hero-scroll__line"></div>
       </div>
 
-      <div class="exercise-layout">
-        <div class="exercise-main">
+    </section>
 
-          <!-- Questão 1 -->
-          <div class="question-card" id="q1">
-            <div class="question-header">
-              <span class="q-number">Questão 01</span>
-              <span class="q-tag">Porcentagem · ENEM 2023</span>
-            </div>
-            <p class="q-text">Uma loja oferece 20% de desconto em um produto que custa R$ 350,00. Qual é o valor final do produto após o desconto?</p>
-            <div class="options" id="opts1">
-              <div class="option" onclick="selectOption(this, 'opts1', false)"><span class="opt-letter">A</span> R$ 280,00</div>
-              <div class="option" onclick="selectOption(this, 'opts1', true)"><span class="opt-letter">B</span> R$ 260,00</div>
-              <div class="option" onclick="selectOption(this, 'opts1', false)"><span class="opt-letter">C</span> R$ 300,00</div>
-              <div class="option" onclick="selectOption(this, 'opts1', false)"><span class="opt-letter">D</span> R$ 330,00</div>
-            </div>
-            <div class="q-feedback" id="fb1"></div>
-          </div>
+    <!-- =====================================================
+         SERVIÇOS SECTION
+    ====================================================== -->
+    <section class="servicos" id="servicos" aria-labelledby="servicos-heading">
 
-          <!-- Questão 2 -->
-          <div class="question-card" id="q2">
-            <div class="question-header">
-              <span class="q-number">Questão 02</span>
-              <span class="q-tag">Geometria · PUC 2022</span>
-            </div>
-            <p class="q-text">Um triângulo retângulo tem catetos medindo 6 cm e 8 cm. Qual é a medida da hipotenusa?</p>
-            <div class="options" id="opts2">
-              <div class="option" onclick="selectOption(this, 'opts2', false)"><span class="opt-letter">A</span> 12 cm</div>
-              <div class="option" onclick="selectOption(this, 'opts2', false)"><span class="opt-letter">B</span> 8 cm</div>
-              <div class="option" onclick="selectOption(this, 'opts2', true)"><span class="opt-letter">C</span> 10 cm</div>
-              <div class="option" onclick="selectOption(this, 'opts2', false)"><span class="opt-letter">D</span> 14 cm</div>
-            </div>
-            <div class="q-feedback" id="fb2"></div>
-          </div>
+      <div class="section-container">
 
-          <!-- Questão 3 -->
-          <div class="question-card" id="q3">
-            <div class="question-header">
-              <span class="q-number">Questão 03</span>
-              <span class="q-tag">Álgebra · FUVEST 2023</span>
-            </div>
-            <p class="q-text">Se f(x) = 2x² − 3x + 1, qual é o valor de f(3)?</p>
-            <div class="options" id="opts3">
-              <div class="option" onclick="selectOption(this, 'opts3', false)"><span class="opt-letter">A</span> 8</div>
-              <div class="option" onclick="selectOption(this, 'opts3', false)"><span class="opt-letter">B</span> 12</div>
-              <div class="option" onclick="selectOption(this, 'opts3', true)"><span class="opt-letter">C</span> 10</div>
-              <div class="option" onclick="selectOption(this, 'opts3', false)"><span class="opt-letter">D</span> 16</div>
-            </div>
-            <div class="q-feedback" id="fb3"></div>
-          </div>
+        <header class="section-header">
+          <p class="section-eyebrow">✦ Nossos serviços</p>
+          <h2 class="section-title" id="servicos-heading">
+            Experiências que <em>elevam</em><br />seu visual
+          </h2>
+        </header>
 
-          <div class="exercise-actions">
-            <button class="btn-primary" onclick="showResults()"><i class="fas fa-chart-bar"></i> Ver Resultado</button>
-            <button class="btn-ghost" onclick="resetExercises()"><i class="fas fa-redo"></i> Reiniciar</button>
-          </div>
+        <div class="servicos-grid" role="list">
 
-          <div class="result-box" id="resultBox" style="display:none"></div>
-        </div>
-
-        <aside class="exercise-sidebar">
-          <div class="sidebar-card">
-            <h3><i class="fas fa-list-ol"></i> Navegação</h3>
-            <div class="q-nav">
-              <button class="q-dot" onclick="scrollToQ('q1')">1</button>
-              <button class="q-dot" onclick="scrollToQ('q2')">2</button>
-              <button class="q-dot" onclick="scrollToQ('q3')">3</button>
-            </div>
-          </div>
-          <div class="sidebar-card">
-            <h3><i class="fas fa-trophy"></i> Seu Desempenho</h3>
-            <div class="perf-ring">
-              <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#f0e0cc" stroke-width="10"/>
-                <circle cx="50" cy="50" r="40" fill="none" stroke="#FF8C00" stroke-width="10" stroke-dasharray="251" stroke-dashoffset="251" id="perfCircle" stroke-linecap="round" transform="rotate(-90 50 50)"/>
+          <article class="servico-card" role="listitem">
+            <div class="servico-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 4 C8 4 14 8 14 16 C14 24 8 28 8 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M16 6 L16 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M24 4 C24 4 18 8 18 16 C18 24 24 28 24 28" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="16" cy="16" r="2" fill="currentColor"/>
               </svg>
-              <span id="perfPct">0%</span>
             </div>
-            <p class="perf-label" id="perfLabel">Responda as questões!</p>
-          </div>
-          <div class="sidebar-card tip-card">
-            <h3><i class="fas fa-lightbulb"></i> Dica</h3>
-            <p>Leia o enunciado com atenção antes de escolher a alternativa. Elimine as claramente erradas primeiro!</p>
-          </div>
-        </aside>
+            <h3 class="servico-card__title">Corte Simples</h3>
+            <p class="servico-card__desc">Corte na máquina ou tesoura, modelado com precisão para realçar seu estilo único.</p>
+            <span class="servico-card__tag">30 min</span>
+          </article>
+
+          <article class="servico-card" role="listitem">
+            <div class="servico-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 10 Q16 4 26 10 Q26 22 16 28 Q6 22 6 10Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M16 8 L16 24" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2"/>
+                <path d="M10 14 Q16 12 22 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="servico-card__title">Corte Normal</h3>
+            <p class="servico-card__desc">Corte completo com acabamento refinado, lavagem e finalização profissional.</p>
+            <span class="servico-card__tag">45 min</span>
+          </article>
+
+          <article class="servico-card servico-card--featured" role="listitem">
+            <div class="servico-card__badge">Mais popular</div>
+            <div class="servico-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8 8 L8 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M8 16 Q14 12 20 16 Q20 22 14 24 Q8 22 8 16Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M22 10 Q26 14 24 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M24 20 Q26 22 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="servico-card__title">Corte e Barba</h3>
+            <p class="servico-card__desc">Combinação premium de corte impecável com barbeação clássica à navalha. A experiência completa.</p>
+            <span class="servico-card__tag">75 min</span>
+          </article>
+
+          <article class="servico-card" role="listitem">
+            <div class="servico-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 12 Q16 8 22 12 Q22 20 16 24 Q10 20 10 12Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M13 18 Q16 20 19 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M14 14 L14 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M18 14 L18 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="servico-card__title">Barba</h3>
+            <p class="servico-card__desc">Barbeação à navalha com toalha quente, modelagem e produtos de hidratação premium.</p>
+            <span class="servico-card__tag">40 min</span>
+          </article>
+
+          <article class="servico-card" role="listitem">
+            <div class="servico-card__icon" aria-hidden="true">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M16 4 Q24 8 24 16 Q24 24 16 28 Q8 24 8 16 Q8 8 16 4Z" stroke="currentColor" stroke-width="1.5" fill="none"/>
+                <path d="M12 14 Q16 10 20 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M11 18 Q16 22 21 18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+              </svg>
+            </div>
+            <h3 class="servico-card__title">Tratamento no Vapor</h3>
+            <p class="servico-card__desc">Tratamento profundo com vapor quente para hidratação, relaxamento e abertura dos poros.</p>
+            <span class="servico-card__tag">60 min</span>
+          </article>
+
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PAGE: CONTEÚDO ===== -->
-  <section class="page" id="page-conteudo">
-    <div class="section-wrap">
-      <div class="section-header">
-        <span class="page-tag">Teoria</span>
-        <h2>O que é Porcentagem?</h2>
-        <p>Entenda o conceito, aprenda a fórmula e veja exemplos práticos</p>
+    <!-- =====================================================
+         BARBEIROS SECTION
+    ====================================================== -->
+    <section class="barbeiros" id="barbeiros" aria-labelledby="barbeiros-heading">
+      <div class="section-container">
+
+        <header class="section-header section-header--light">
+          <p class="section-eyebrow">✦ Nossa equipe</p>
+          <h2 class="section-title" id="barbeiros-heading">
+            Mestres do <em>ofício</em>
+          </h2>
+          <p class="section-description">
+            Profissionais apaixonados pela arte da barbearia, cada um com seu estilo único e anos de dedicação ao ofício.
+          </p>
+        </header>
+
+        <div class="barbeiros-grid" role="list">
+
+          <article class="barbeiro-card" role="listitem">
+            <div class="barbeiro-card__avatar" aria-hidden="true">
+              <span class="barbeiro-card__initial">L</span>
+            </div>
+            <h3 class="barbeiro-card__name">Lucas</h3>
+            <p class="barbeiro-card__bio">Especialista em degradê e cortes modernos com navalha.</p>
+          </article>
+
+          <article class="barbeiro-card" role="listitem">
+            <div class="barbeiro-card__avatar" aria-hidden="true">
+              <span class="barbeiro-card__initial">E</span>
+            </div>
+            <h3 class="barbeiro-card__name">Eduardo</h3>
+            <p class="barbeiro-card__bio">Mestre em barbeação clássica e modelagem de barba.</p>
+          </article>
+
+          <article class="barbeiro-card" role="listitem">
+            <div class="barbeiro-card__avatar" aria-hidden="true">
+              <span class="barbeiro-card__initial">G</span>
+            </div>
+            <h3 class="barbeiro-card__name">Gustavo</h3>
+            <p class="barbeiro-card__bio">Expert em cortes afro, tranças e penteados criativos.</p>
+          </article>
+
+          <article class="barbeiro-card" role="listitem">
+            <div class="barbeiro-card__avatar" aria-hidden="true">
+              <span class="barbeiro-card__initial">M</span>
+            </div>
+            <h3 class="barbeiro-card__name">Matheus</h3>
+            <p class="barbeiro-card__bio">Precisão cirúrgica em degradês e acabamentos.</p>
+          </article>
+
+          <article class="barbeiro-card" role="listitem">
+            <div class="barbeiro-card__avatar" aria-hidden="true">
+              <span class="barbeiro-card__initial">F</span>
+            </div>
+            <h3 class="barbeiro-card__name">Flávio</h3>
+            <p class="barbeiro-card__bio">Referência em tratamentos capilares e hidratação.</p>
+          </article>
+
+          <article class="barbeiro-card" role="listitem">
+            <div class="barbeiro-card__avatar" aria-hidden="true">
+              <span class="barbeiro-card__initial">R</span>
+            </div>
+            <h3 class="barbeiro-card__name">Roni</h3>
+            <p class="barbeiro-card__bio">Habilidade única em cortes clássicos e vintage.</p>
+          </article>
+
+        </div>
       </div>
+    </section>
 
-      <div class="content-layout">
-        <article class="content-body">
-          <div class="content-intro">
-            <img src="https://placehold.co/700x260/FF8C00/ffffff?text=📊+Porcentagem+Visual" alt="Ilustração Porcentagem" class="content-banner" />
-          </div>
+    <!-- =====================================================
+         AGENDAMENTO SECTION
+    ====================================================== -->
+    <section class="agendar" id="agendar" aria-labelledby="agendar-heading">
+      <div class="section-container">
 
-          <h3>O Conceito</h3>
-          <p>Porcentagem é uma forma de expressar uma proporção ou uma relação entre dois valores em que o denominador é sempre 100. A palavra "porcentagem" vem do latim <em>per centum</em>, que significa "por cem".</p>
-          <p>É amplamente usada no cotidiano: descontos em lojas, taxas de juros, resultados eleitorais, índices econômicos e muito mais. Dominar porcentagem é essencial para qualquer vestibular.</p>
+        <div class="agendar-layout">
 
-          <div class="formula-box">
-            <span class="formula-label">Fórmula Básica</span>
-            <div class="formula">Parte = (Porcentagem ÷ 100) × Total</div>
-          </div>
+          <!-- Coluna informativa -->
+          <div class="agendar-info">
+            <p class="section-eyebrow">✦ Agendamento online</p>
+            <h2 class="section-title" id="agendar-heading">
+              Reserve seu<br /><em>momento</em>
+            </h2>
+            <p class="agendar-info__text">
+              Agende diretamente pelo WhatsApp em poucos passos.
+              Escolha a unidade, o barbeiro, o serviço e o horário ideal para você.
+            </p>
 
-          <h3>Exemplos Práticos</h3>
-          <div class="example-grid">
-            <div class="example-item">
-              <div class="ex-icon">🛒</div>
-              <h4>Desconto em loja</h4>
-              <p>Um produto custa R$ 200,00 com 15% de desconto.<br/>Desconto = 15% × 200 = <strong>R$ 30,00</strong><br/>Final = 200 − 30 = <strong>R$ 170,00</strong></p>
-            </div>
-            <div class="example-item">
-              <div class="ex-icon">📈</div>
-              <h4>Juros simples</h4>
-              <p>R$ 1.000,00 a 2% ao mês por 6 meses.<br/>J = 1000 × 0,02 × 6 = <strong>R$ 120,00</strong><br/>Total = <strong>R$ 1.120,00</strong></p>
-            </div>
-          </div>
-
-          <h3>Regra de Três Simples</h3>
-          <p>A regra de três é uma estratégia para encontrar um valor desconhecido a partir de três valores conhecidos que guardam proporção entre si. É um dos tópicos mais cobrados no ENEM e demais vestibulares.</p>
-
-          <div class="steps-box">
-            <div class="step"><span>1</span><p>Identifique as duas grandezas relacionadas.</p></div>
-            <div class="step"><span>2</span><p>Verifique se são diretamente ou inversamente proporcionais.</p></div>
-            <div class="step"><span>3</span><p>Monte a proporção e resolva para o incógnito.</p></div>
-          </div>
-
-          <div class="content-actions">
-            <button class="btn-primary" onclick="showPage('exercicios')"><i class="fas fa-pencil-alt"></i> Praticar Exercícios</button>
-            <button class="btn-ghost" onclick="showPage('videoaulas')"><i class="fas fa-play"></i> Ver Videoaula</button>
-          </div>
-        </article>
-
-        <aside class="content-sidebar">
-          <img src="https://placehold.co/280x320/ffe4cc/FF8C00?text=🎓+Ilustração" alt="Ilustração lateral" class="sidebar-img" />
-          <div class="sidebar-card">
-            <h3><i class="fas fa-bookmark"></i> Tópicos Relacionados</h3>
-            <ul class="related-list">
-              <li><a href="#" onclick="showPage('conteudo')"><i class="fas fa-chevron-right"></i> Frações</a></li>
-              <li><a href="#" onclick="showPage('conteudo')"><i class="fas fa-chevron-right"></i> Regra de Três</a></li>
-              <li><a href="#" onclick="showPage('conteudo')"><i class="fas fa-chevron-right"></i> Juros Compostos</a></li>
-              <li><a href="#" onclick="showPage('conteudo')"><i class="fas fa-chevron-right"></i> Razão e Proporção</a></li>
+            <ul class="agendar-benefits" role="list" aria-label="Benefícios do agendamento">
+              <li class="benefit-item">
+                <span class="benefit-item__icon" aria-hidden="true">✓</span>
+                <span>Confirmação imediata via WhatsApp</span>
+              </li>
+              <li class="benefit-item">
+                <span class="benefit-item__icon" aria-hidden="true">✓</span>
+                <span>Sem filas, sem espera</span>
+              </li>
+              <li class="benefit-item">
+                <span class="benefit-item__icon" aria-hidden="true">✓</span>
+                <span>Escolha seu barbeiro favorito</span>
+              </li>
+              <li class="benefit-item">
+                <span class="benefit-item__icon" aria-hidden="true">✓</span>
+                <span>Horários das 08h às 20h</span>
+              </li>
             </ul>
-          </div>
-          <div class="sidebar-card" style="background:#fff7ee; border:2px solid #FF8C00">
-            <h3 style="color:#FF8C00"><i class="fas fa-fire"></i> Mais Cobrado</h3>
-            <p style="font-size:.9rem">Porcentagem aparece em <strong>~30%</strong> das provas de matemática do ENEM dos últimos 5 anos.</p>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
 
-  <!-- ===== PAGE: VIDEOAULAS ===== -->
-  <section class="page" id="page-videoaulas">
-    <div class="section-wrap">
-      <div class="section-header">
-        <span class="page-tag">Videoaulas</span>
-        <h2>Aprenda com Vídeos</h2>
-        <p>Aulas explicativas organizadas por tópico — assista no seu ritmo</p>
-      </div>
-
-      <div class="video-layout">
-        <div class="accordion-list">
-
-          <!-- Accordion: Regra de 3 -->
-          <div class="accordion-item" id="acc1">
-            <button class="accordion-trigger" onclick="toggleAccordion('acc1')">
-              <div class="acc-left">
-                <span class="acc-icon">📐</span>
-                <div>
-                  <strong>Regra de Três</strong>
-                  <small>4 aulas · 52 min</small>
-                </div>
+            <!-- Contato / endereços -->
+            <div class="agendar-contato" role="complementary" aria-label="Endereços das unidades">
+              <div class="contato-item">
+                <span class="contato-item__label">Vila João XXIII</span>
+                <span class="contato-item__value">Rua Principal, 123</span>
               </div>
-              <i class="fas fa-chevron-down acc-arrow"></i>
-            </button>
-            <div class="accordion-content">
-              <div class="video-list">
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/FF8C00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Introdução à Regra de Três</strong>
-                    <span>12 min · Aula 1</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/e67e00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Regra de Três Simples</strong>
-                    <span>14 min · Aula 2</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/c45500/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Regra de Três Composta</strong>
-                    <span>16 min · Aula 3</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/b84d00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Exercícios Resolvidos</strong>
-                    <span>10 min · Aula 4</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
+              <div class="contato-item">
+                <span class="contato-item__label">Avenida Brasil</span>
+                <span class="contato-item__value">Av. Brasil, 456</span>
               </div>
             </div>
           </div>
 
-          <!-- Accordion: Porcentagem -->
-          <div class="accordion-item" id="acc2">
-            <button class="accordion-trigger" onclick="toggleAccordion('acc2')">
-              <div class="acc-left">
-                <span class="acc-icon">💯</span>
-                <div>
-                  <strong>Porcentagem</strong>
-                  <small>5 aulas · 68 min</small>
-                </div>
-              </div>
-              <i class="fas fa-chevron-down acc-arrow"></i>
-            </button>
-            <div class="accordion-content">
-              <div class="video-list">
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/FF8C00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>O que é Porcentagem?</strong>
-                    <span>10 min · Aula 1</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/e67e00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Cálculo de Desconto</strong>
-                    <span>14 min · Aula 2</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/d45f00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Juros Simples</strong>
-                    <span>18 min · Aula 3</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <!-- Formulário de agendamento -->
+          <div class="agendar-form-wrapper">
+            <form
+              class="agendar-form"
+              id="agendamento-form"
+              novalidate
+              aria-label="Formulário de agendamento"
+            >
 
-          <!-- Accordion: Fração -->
-          <div class="accordion-item" id="acc3">
-            <button class="accordion-trigger" onclick="toggleAccordion('acc3')">
-              <div class="acc-left">
-                <span class="acc-icon">🔣</span>
-                <div>
-                  <strong>Fração</strong>
-                  <small>6 aulas · 80 min</small>
+              <!-- Passo 1: Unidade -->
+              <fieldset class="form-group">
+                <legend class="form-label">
+                  <span class="form-step" aria-hidden="true">01</span>
+                  Escolha a unidade
+                </legend>
+                <div class="options-grid options-grid--2" role="radiogroup" aria-label="Escolha da unidade">
+                  <label class="option-card">
+                    <input type="radio" name="unidade" value="Vila João XXIII" required />
+                    <span class="option-card__content">
+                      <span class="option-card__title">Vila João XXIII</span>
+                      <span class="option-card__sub">Rua Principal, 123</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card">
+                    <input type="radio" name="unidade" value="Avenida Brasil" required />
+                    <span class="option-card__content">
+                      <span class="option-card__title">Avenida Brasil</span>
+                      <span class="option-card__sub">Av. Brasil, 456</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
                 </div>
-              </div>
-              <i class="fas fa-chevron-down acc-arrow"></i>
-            </button>
-            <div class="accordion-content">
-              <div class="video-list">
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/FF8C00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Tipos de Frações</strong>
-                    <span>13 min · Aula 1</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/e67e00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Operações com Frações</strong>
-                    <span>20 min · Aula 2</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/c45500/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Frações e Decimais</strong>
-                    <span>15 min · Aula 3</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-              </div>
-            </div>
-          </div>
+              </fieldset>
 
-          <!-- Accordion: Álgebra -->
-          <div class="accordion-item" id="acc4">
-            <button class="accordion-trigger" onclick="toggleAccordion('acc4')">
-              <div class="acc-left">
-                <span class="acc-icon">🔢</span>
-                <div>
-                  <strong>Álgebra e Funções</strong>
-                  <small>7 aulas · 95 min</small>
+              <!-- Passo 2: Barbeiro -->
+              <fieldset class="form-group">
+                <legend class="form-label">
+                  <span class="form-step" aria-hidden="true">02</span>
+                  Escolha o barbeiro
+                </legend>
+                <div class="options-grid options-grid--3" role="radiogroup" aria-label="Escolha do barbeiro">
+                  <label class="option-card option-card--sm">
+                    <input type="radio" name="barbeiro" value="Lucas" required />
+                    <span class="option-card__content">
+                      <span class="option-card__avatar">L</span>
+                      <span class="option-card__title">Lucas</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--sm">
+                    <input type="radio" name="barbeiro" value="Eduardo" required />
+                    <span class="option-card__content">
+                      <span class="option-card__avatar">E</span>
+                      <span class="option-card__title">Eduardo</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--sm">
+                    <input type="radio" name="barbeiro" value="Gustavo" required />
+                    <span class="option-card__content">
+                      <span class="option-card__avatar">G</span>
+                      <span class="option-card__title">Gustavo</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--sm">
+                    <input type="radio" name="barbeiro" value="Matheus" required />
+                    <span class="option-card__content">
+                      <span class="option-card__avatar">M</span>
+                      <span class="option-card__title">Matheus</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--sm">
+                    <input type="radio" name="barbeiro" value="Flávio" required />
+                    <span class="option-card__content">
+                      <span class="option-card__avatar">F</span>
+                      <span class="option-card__title">Flávio</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--sm">
+                    <input type="radio" name="barbeiro" value="Roni" required />
+                    <span class="option-card__content">
+                      <span class="option-card__avatar">R</span>
+                      <span class="option-card__title">Roni</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
                 </div>
+              </fieldset>
+
+              <!-- Passo 3: Serviço -->
+              <fieldset class="form-group">
+                <legend class="form-label">
+                  <span class="form-step" aria-hidden="true">03</span>
+                  Escolha o serviço
+                </legend>
+                <div class="options-grid options-grid--1" role="radiogroup" aria-label="Escolha do serviço">
+                  <label class="option-card option-card--service">
+                    <input type="radio" name="servico" value="Corte Simples" required />
+                    <span class="option-card__content">
+                      <span class="option-card__title">Corte Simples</span>
+                      <span class="option-card__sub">30 min • Máquina ou tesoura</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--service">
+                    <input type="radio" name="servico" value="Corte Normal" required />
+                    <span class="option-card__content">
+                      <span class="option-card__title">Corte Normal</span>
+                      <span class="option-card__sub">45 min • Com lavagem e finalização</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--service">
+                    <input type="radio" name="servico" value="Corte e Barba" required />
+                    <span class="option-card__content">
+                      <span class="option-card__title">Corte e Barba</span>
+                      <span class="option-card__sub">75 min • Experiência completa</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--service">
+                    <input type="radio" name="servico" value="Barba" required />
+                    <span class="option-card__content">
+                      <span class="option-card__title">Barba</span>
+                      <span class="option-card__sub">40 min • Navalha com toalha quente</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                  <label class="option-card option-card--service">
+                    <input type="radio" name="servico" value="Tratamento no Vapor" required />
+                    <span class="option-card__content">
+                      <span class="option-card__title">Tratamento no Vapor</span>
+                      <span class="option-card__sub">60 min • Hidratação profunda</span>
+                    </span>
+                    <span class="option-card__check" aria-hidden="true">✓</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <!-- Passo 4: Horário -->
+              <fieldset class="form-group">
+                <legend class="form-label">
+                  <span class="form-step" aria-hidden="true">04</span>
+                  Escolha o horário
+                </legend>
+                <div class="horarios-grid" role="radiogroup" aria-label="Escolha do horário" id="horarios-grid">
+                  <!-- Horários gerados pelo JavaScript -->
+                </div>
+              </fieldset>
+
+              <!-- Mensagem de erro / validação -->
+              <div
+                class="form-error"
+                id="form-error"
+                role="alert"
+                aria-live="polite"
+                aria-atomic="true"
+                hidden
+              >
+                <span class="form-error__icon" aria-hidden="true">⚠</span>
+                <span class="form-error__text" id="form-error-text">
+                  Por favor, preencha todos os campos antes de continuar.
+                </span>
               </div>
-              <i class="fas fa-chevron-down acc-arrow"></i>
-            </button>
-            <div class="accordion-content">
-              <div class="video-list">
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/FF8C00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Equações do 1º Grau</strong>
-                    <span>15 min · Aula 1</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
-                <div class="video-item">
-                  <img src="https://placehold.co/120x68/d45f00/fff?text=▶" alt="thumb" />
-                  <div class="vi-info">
-                    <strong>Equações do 2º Grau</strong>
-                    <span>20 min · Aula 2</span>
-                  </div>
-                  <button class="btn-play"><i class="fas fa-play"></i></button>
-                </div>
+
+              <!-- Botão de envio -->
+              <div class="form-submit-wrapper">
+                <button type="submit" class="btn btn--whatsapp" id="submit-btn" aria-describedby="form-error">
+                  <svg class="btn__icon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  Agendar via WhatsApp
+                </button>
               </div>
-            </div>
+
+            </form>
           </div>
 
         </div>
-
-        <aside class="video-sidebar">
-          <div class="sidebar-card">
-            <h3><i class="fas fa-star"></i> Em Destaque</h3>
-            <div class="featured-video">
-              <img src="https://placehold.co/260x150/FF8C00/ffffff?text=▶+Aula+Destaque" alt="Destaque" style="width:100%;border-radius:10px;margin-bottom:10px"/>
-              <strong>Revisão Geral ENEM 2024</strong>
-              <p>45 min · Prof. Carlos Mendes</p>
-              <button class="btn-primary" style="width:100%;margin-top:10px"><i class="fas fa-play"></i> Assistir</button>
-            </div>
-          </div>
-          <div class="sidebar-card">
-            <h3><i class="fas fa-graduation-cap"></i> Progresso</h3>
-            <div class="progress-list">
-              <div class="prog-item"><span>Regra de Três</span><div class="prog-bar"><div style="width:75%"></div></div></div>
-              <div class="prog-item"><span>Porcentagem</span><div class="prog-bar"><div style="width:40%"></div></div></div>
-              <div class="prog-item"><span>Fração</span><div class="prog-bar"><div style="width:20%"></div></div></div>
-            </div>
-          </div>
-        </aside>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== PAGE: SIMULADO ===== -->
-  <section class="page" id="page-simulado">
-    <div class="section-wrap">
-      <div class="section-header">
-        <span class="page-tag">Simulado</span>
-        <h2>Configure seu Simulado</h2>
-        <p>Personalize as questões e treine como se fosse dia de prova</p>
-      </div>
+  </main>
 
-      <div class="simulado-layout">
-        <div class="simulado-form-wrap">
-          <form class="simulado-form" id="simuladoForm" onsubmit="startSimulado(event)">
-
-            <div class="form-group">
-              <label for="nomeCompleto"><i class="fas fa-user"></i> Nome Completo</label>
-              <input type="text" id="nomeCompleto" placeholder="Digite seu nome completo" />
-              <span class="field-error" id="errNome"></span>
-            </div>
-
-            <div class="form-group">
-              <label><i class="fas fa-list-ol"></i> Quantidade de Questões</label>
-              <div class="qty-selector" id="qtySel">
-                <button type="button" class="qty-btn active" data-qty="5" onclick="selectQty(this)">5</button>
-                <button type="button" class="qty-btn" data-qty="10" onclick="selectQty(this)">10</button>
-                <button type="button" class="qty-btn" data-qty="20" onclick="selectQty(this)">20</button>
-                <button type="button" class="qty-btn" data-qty="30" onclick="selectQty(this)">30</button>
-              </div>
-              <span class="field-error" id="errQty"></span>
-            </div>
-
-            <div class="form-group">
-              <label><i class="fas fa-school"></i> Vestibular(es)</label>
-              <div class="checkbox-grid">
-                <label class="check-label"><input type="checkbox" value="ENEM" class="ves-check" /> <span>ENEM</span></label>
-                <label class="check-label"><input type="checkbox" value="PUC" class="ves-check" /> <span>PUC</span></label>
-                <label class="check-label"><input type="checkbox" value="FUVEST" class="ves-check" /> <span>FUVEST</span></label>
-                <label class="check-label"><input type="checkbox" value="UNICAMP" class="ves-check" /> <span>UNICAMP</span></label>
-                <label class="check-label"><input type="checkbox" value="UNESP" class="ves-check" /> <span>UNESP</span></label>
-                <label class="check-label"><input type="checkbox" value="IME" class="ves-check" /> <span>ITA/IME</span></label>
-              </div>
-              <span class="field-error" id="errVes"></span>
-            </div>
-
-            <div class="form-group">
-              <label><i class="fas fa-book"></i> Tópicos</label>
-              <div class="checkbox-grid">
-                <label class="check-label"><input type="checkbox" class="top-check" value="Porcentagem" /> <span>Porcentagem</span></label>
-                <label class="check-label"><input type="checkbox" class="top-check" value="Geometria" /> <span>Geometria</span></label>
-                <label class="check-label"><input type="checkbox" class="top-check" value="Álgebra" /> <span>Álgebra</span></label>
-                <label class="check-label"><input type="checkbox" class="top-check" value="Estatística" /> <span>Estatística</span></label>
-                <label class="check-label"><input type="checkbox" class="top-check" value="Trigonometria" /> <span>Trigonometria</span></label>
-                <label class="check-label"><input type="checkbox" class="top-check" value="Frações" /> <span>Frações</span></label>
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label><i class="fas fa-clock"></i> Tempo por Questão</label>
-              <div class="qty-selector">
-                <button type="button" class="qty-btn active" onclick="selectTime(this)" data-time="2">2 min</button>
-                <button type="button" class="qty-btn" onclick="selectTime(this)" data-time="3">3 min</button>
-                <button type="button" class="qty-btn" onclick="selectTime(this)" data-time="5">5 min</button>
-                <button type="button" class="qty-btn" onclick="selectTime(this)" data-time="0">Livre</button>
-              </div>
-            </div>
-
-            <button type="submit" class="btn-simulado">
-              <i class="fas fa-arrow-right"></i> Iniciar Simulado
-            </button>
-          </form>
-
-          <div class="simulado-success" id="simuladoSuccess" style="display:none">
-            <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-            <h3 id="successMsg">Simulado configurado!</h3>
-            <p id="successDetail"></p>
-            <button class="btn-primary" onclick="showPage('exercicios')"><i class="fas fa-play"></i> Começar Agora</button>
-            <button class="btn-ghost" style="margin-top:10px" onclick="resetSimulado()"><i class="fas fa-redo"></i> Reconfigurar</button>
-          </div>
-        </div>
-
-        <aside class="simulado-sidebar">
-          <img src="https://placehold.co/280x200/ffe4cc/FF8C00?text=📝+Simulado" alt="Simulado" style="width:100%;border-radius:16px;margin-bottom:20px"/>
-          <div class="sidebar-card">
-            <h3><i class="fas fa-info-circle"></i> Como funciona</h3>
-            <ol class="how-list">
-              <li>Preencha seu nome e configure o simulado</li>
-              <li>Escolha os vestibulares e tópicos</li>
-              <li>Clique em "Iniciar Simulado"</li>
-              <li>Responda as questões no tempo configurado</li>
-              <li>Veja seu resultado detalhado ao final</li>
-            </ol>
-          </div>
-          <div class="sidebar-card" style="background:#fff7ee;border:2px solid #FF8C00">
-            <h3 style="color:#FF8C00"><i class="fas fa-award"></i> Ranking</h3>
-            <div class="rank-list">
-              <div class="rank-item"><span class="rank-pos">🥇</span><span class="rank-name">Ana Silva</span><span class="rank-score">98%</span></div>
-              <div class="rank-item"><span class="rank-pos">🥈</span><span class="rank-name">João Matos</span><span class="rank-score">95%</span></div>
-              <div class="rank-item"><span class="rank-pos">🥉</span><span class="rank-name">Carla Dias</span><span class="rank-score">91%</span></div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+  <footer class="site-footer" role="contentinfo">
     <div class="footer-container">
+
       <div class="footer-brand">
-        <span class="logo-text" style="font-size:1.5rem;color:#fff"><i class="fas fa-square-root-alt"></i> Preg<strong>Math</strong></span>
-        <p>Sua plataforma de matemática para vestibulares. Aprenda, pratique e conquiste sua vaga.</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
-          <a href="#"><i class="fab fa-discord"></i></a>
+        <!-- Logo repetida no footer -->
+        <div class="logo-container logo-container--sm" aria-label="Logo da barbearia">
+          <img
+            src="logo.png"
+            alt="Barbearia – Logo"
+            class="logo-img logo-img--sm"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="logo-placeholder logo-placeholder--sm" aria-hidden="true">
+            <span class="logo-icon">✦</span>
+            <span class="logo-text">BARBEARIA</span>
+          </div>
         </div>
+        <p class="footer-tagline">Arte em cada detalhe.</p>
       </div>
-      <div class="footer-links">
-        <h4>Plataforma</h4>
-        <ul>
-          <li><a href="#" onclick="showPage('home')">Home</a></li>
-          <li><a href="#" onclick="showPage('exercicios')">Exercícios</a></li>
-          <li><a href="#" onclick="showPage('videoaulas')">Videoaulas</a></li>
-          <li><a href="#" onclick="showPage('simulado')">Simulado</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Vestibulares</h4>
-        <ul>
-          <li><a href="#">ENEM</a></li>
-          <li><a href="#">FUVEST</a></li>
-          <li><a href="#">PUC</a></li>
-          <li><a href="#">UNICAMP</a></li>
-        </ul>
-      </div>
-      <div class="footer-links">
-        <h4>Suporte</h4>
-        <ul>
-          <li><a href="#">FAQ</a></li>
-          <li><a href="#">Contato</a></li>
-          <li><a href="#">Termos de Uso</a></li>
-          <li><a href="#">Privacidade</a></li>
-        </ul>
-      </div>
+
+      <nav class="footer-nav" aria-label="Links do rodapé">
+        <div class="footer-nav__col">
+          <h3 class="footer-nav__title">Unidades</h3>
+          <ul role="list">
+            <li><span>Vila João XXIII</span></li>
+            <li><span>Avenida Brasil</span></li>
+          </ul>
+        </div>
+        <div class="footer-nav__col">
+          <h3 class="footer-nav__title">Serviços</h3>
+          <ul role="list">
+            <li><span>Corte Simples</span></li>
+            <li><span>Corte e Barba</span></li>
+            <li><span>Barba</span></li>
+            <li><span>Tratamento no Vapor</span></li>
+          </ul>
+        </div>
+        <div class="footer-nav__col">
+          <h3 class="footer-nav__title">Horários</h3>
+          <ul role="list">
+            <li><span>Seg – Sex: 08h às 20h</span></li>
+            <li><span>Sábado: 08h às 18h</span></li>
+            <li><span>Domingo: Fechado</span></li>
+          </ul>
+        </div>
+      </nav>
+
     </div>
+
     <div class="footer-bottom">
-      <p>© 2024 PregMath. Todos os direitos reservados.</p>
-      <p>Feito com ❤️ para estudantes brasileiros</p>
+      <p class="footer-copy">
+        &copy; <span id="footer-year"></span> Barbearia. Todos os direitos reservados.
+      </p>
+      <p class="footer-credit">Feito com ✦ e precisão.</p>
     </div>
   </footer>
 
